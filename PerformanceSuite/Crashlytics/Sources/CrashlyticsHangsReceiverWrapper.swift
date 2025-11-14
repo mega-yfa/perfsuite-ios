@@ -9,6 +9,7 @@
 #if canImport(PerformanceSuiteCrashlytics)
 import PerformanceSuite
 #endif
+import Foundation
 
 /// Settings how to report hangs to Crashlytics
 /// - how to format issue name depending on the type of a hang
@@ -110,5 +111,9 @@ public class CrashlyticsHangsReceiverWrapper: HangsReceiver {
         let hangType = hangTypeFormatter(true, info.duringStartup)
         lastHangReport = issueReporter.reportHangStarted(withType: hangType,
                                                          stackTrace: info.callStack)
+    }
+    
+    public var hangThreshold: TimeInterval {
+        hangsReceiver.hangThreshold
     }
 }
