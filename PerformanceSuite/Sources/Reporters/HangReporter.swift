@@ -96,7 +96,7 @@ final class HangReporter: AppMetricsReporter, DidHangPreviouslyProvider {
         detectionTimerInterval: DispatchTimeInterval,
         hangThreshold: DispatchTimeInterval,
         didCrashPreviously: Bool = false,
-        enabledInDebug: Bool = false,
+        enabledInDebug: Bool = true,
         receiver: HangsReceiver
     ) {
         self.timeProvider = timeProvider
